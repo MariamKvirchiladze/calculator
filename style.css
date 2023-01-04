@@ -1,0 +1,147 @@
+:root {
+  --background: #021d67;
+  --table-bg: #052fa0;
+  --keys-bg: #031f6c;
+  --key-ft: #e7ebf7;
+  --actions-ft: #04e2ff;
+  --operators-ft: #c51515;
+  --shadow: 5px 5px 5px 1px rgb(1, 25, 38);
+  --shadow2: 0px -2px 16px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Big Shoulders Display", cursive;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calculator {
+  background-color: var(--background);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 375px;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+.display {
+  min-height: 200px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: var(--key-ft);
+  text-align: right;
+  flex: 1 1 0%;
+}
+img {
+  width: 40px;
+  height: 40px;
+  margin: 0.5rem;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+}
+.buttons {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+button {
+  border-radius: 50%;
+  background-color: var(--table-bg);
+  cursor: pointer;
+}
+button:hover {
+  box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.2);
+}
+.display .input {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.display .output {
+  font-size: 3rem;
+  font-weight: 700;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.display .operator {
+  color: var(--operators-ft);
+  font-size: 1.5rem;
+}
+
+.display .brackets,
+.display .percent {
+  color: var(--actions-ft);
+  font-size: 1.5rem;
+}
+
+.keys {
+  background-color: var(--table-bg);
+  box-shadow: var(--shadow2);
+  padding: 1.5rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 1rem;
+}
+.keys .key {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  flex: 1 1 0%;
+  height: 0;
+  padding-top: 100%;
+  background-color: var(--keys-bg);
+  border-radius: 0.8rem;
+  transition: 0.2s;
+  user-select: none;
+}
+.keys .key span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--key-ft);
+}
+.keys .key:hover {
+  box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.2);
+}
+
+.keys .key.operator span {
+  color: var(--operators-ft);
+}
+
+.keys .key.action span {
+  color: var(--actions-ft);
+}
+
+.listening {
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
